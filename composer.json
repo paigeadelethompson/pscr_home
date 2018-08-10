@@ -1,0 +1,9 @@
+{
+    "name": "netcrave/pscr_home",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "pscr\\apps\\home": "apps/home"
+        }
+    }
+}
