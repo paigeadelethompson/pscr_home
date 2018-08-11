@@ -3,7 +3,7 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "pscr\\apps\\home": "apps/home"
+            "pscr\\apps\\home": "apps/home/"
         }
     }
 }
