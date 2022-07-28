@@ -1,6 +1,9 @@
 {
-    "name": "netcrave/pscr_home",
+    "name": "paigeadelethompson/pscr_home",
     "type": "library",
+     "license": [
+       "GPL-3.0-or-later"
+    ],
     "autoload": {
         "psr-4": {
             "pscr\\apps\\home": "apps/home/"
