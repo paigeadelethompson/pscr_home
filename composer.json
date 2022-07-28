@@ -1,7 +1,7 @@
 {
     "name": "paigeadelethompson/pscr_home",
     "type": "library",
-     "license": [
+    "license": [
        "GPL-3.0-or-later"
     ],
     "autoload": {
