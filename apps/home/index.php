@@ -101,7 +101,7 @@ class index extends pscr_content {
     function initialize_open_graph_tags() {
         $this->og_url = $this->head->meta()
                       ->property("og:url")
-                      ->content("https://shells.yourstruly.sx");
+                      ->content("https:///pscrdemo.herokuapp.com");
 
         $this->og_type = $this->head->meta()
                        ->property("og:type")
@@ -109,17 +109,17 @@ class index extends pscr_content {
 
         $this->og_title = $this->head->meta()
                         ->property("og:title")
-                        ->content("Netcrave Communications (yourstruly.sx)");
+                        ->content("PSCR default install page");
 
         $this->og_desc = $this->head->meta()
                        ->property("og:description")
-                       ->content("Shell Accounts, Website Design, Hosting");
+                       ->content("Progressive Solutions Content Renderer");
     }
 
     function initialize_meta_tags() {
         $this->meta_desc = $this->head->meta()
                          ->name("description")
-                         ->content("Shell Accounts, Website Design, Hosting");
+                         ->content("https://pscrdemo.herokuapp.com");
 
         $this->robots = $this->head->meta()
                       ->name('robots')
@@ -132,7 +132,7 @@ class index extends pscr_content {
 
         $this->keywords = $this->head->meta()
                         ->name("keywords")
-                        ->content("shell accounts, hosting, web design, programming services");
+                        ->content("Progressive Solutions Content Renderer");
 
         $this->language = $this->head->meta()
                         ->name("language")
@@ -158,7 +158,7 @@ class index extends pscr_content {
     function initialize_main_document_elements() {
 
         $this->head = $this->html->head();
-        $this->head->title()->innerText = "yourstruly.sx - Netcrave Communications";
+        $this->head->title()->innerText = "PSCR Default Install Page";
 
         $this->head->stylesheet("css/style.css");
         $this->head->javascript("js/index.js");
@@ -179,8 +179,8 @@ class index extends pscr_content {
         $header_company = $header_bar->div()->id('company');
         $header_title = $header_bar->div()->id('title');
 
-        $header_company->h1("【﻿ｙｏｕｒｓｔｒｕｌｙ】")->class("company");
-        $header_title->h1("．ｓｘ")->class("title");
+        $header_company->h1("【﻿ＰＳＣＲ】")->class("company");
+        $header_title->h1("ᴰᵉᶠᵃᵘˡᵗ ᴵⁿˢᵗᵃˡˡ ᴾᵃᵍᵉ")->class("title");
 
 
         $button = $header_bar->div('sidebar-button');
