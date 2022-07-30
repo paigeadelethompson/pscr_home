@@ -58,17 +58,8 @@ class about extends index
     public function generate()
     {
         $para = $this->get_paragraph_container_h2("About");
-        $para->p("yourstruly.sx is a shell hosting provider. We offer other services as well:");
-        $services = $para->div()->ul();
-        $services->style()->margin_left = "12px";
-        $services->li("Exchange E-mail / Calendar");
-        $services->li("Docker container hosting");
-        $services->li("FreeBSD/OpenBSD hosting");
-        $services->li("Programming services");
-
-        $para = $this->get_paragraph_container_h3("How to subscribe");
-        $para->p("contact Paige");
-        $para->a("erratic@yourstruly.sx")->href = "mailto:erratic@yourstruly.sx";
+        $para->p("Progressive Solutions Content Renderer; An armchair PHP web application development framework");
+        $para->a("https://pscrdemo.herokuapp.com/")->href = "https://pscrdemo.herokuapp.com/";
     }
 }
 
