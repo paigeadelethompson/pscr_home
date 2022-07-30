@@ -95,7 +95,7 @@ class register extends index
             ->value("Register");
     }
 
-    function process_post($data) {
+    function process_post() {
         $this->response->add_redirect("/");
     }
 }
