@@ -83,8 +83,7 @@ class login extends index
             ->value("Login");
     }
 
-    function process_post($data) {
-        die(print_r($data));
+    function process_post() {
         $this->response->add_redirect("/500");
     }
 }
