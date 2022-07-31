@@ -1,41 +1,4 @@
 <?php
-/*
- * Author: Paige A. Thompson (paigeadele@gmail.com)
- * Copyright (c) 2018, Netcrave Communications
- * All rights reserved.
- *
- *
- * Author: Trevor A. Thompson (trevorat@gmail.com)
- * Copyright (c) 2007, Progressive Solutions Inc.
- * All rights reserved.
- *
- * - Redistribution and use of this software in source and binary forms, with or without modification, are
- * permitted provided that the following conditions are met:
- * Redistributions of source code must retain the above
- * copyright notice, this list of conditions and the
- * following disclaimer.
- *
- * - Redistributions in binary form must reproduce the above
- * copyright notice, this list of conditions and the
- * following disclaimer in the documentation and/or other
- * materials provided with the distribution.
- *
- * - Neither the name of Progressive Solutions Inc. nor the names of its
- * contributors may be used to endorse or promote products
- * derived from this software without specific prior
- * written permission of Progressive Solutions Inc.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
- * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
- * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- */
-
 
 namespace pscr\apps\home;
 
@@ -47,12 +10,6 @@ use pscr\extensions\pscr_content\html;
  * @package pscr\apps\home
  */
 class index extends pscr_content {
-
-    /**
-     * https://coolors.co/011627-f71735-41ead4-fdfffc-ff9f1c
-     * https://coolors.co/242038-9067c6-8d86c9-cac4ce-f7ece1
-     */
-
     protected $content_root_div;
     protected $header_bar;
     protected $side_bar;
@@ -109,7 +66,7 @@ class index extends pscr_content {
 
         $this->og_title = $this->head->meta()
                         ->property("og:title")
-                        ->content("PSCR default install page");
+                        ->content("PSCR Default Install Page");
 
         $this->og_desc = $this->head->meta()
                        ->property("og:description")
@@ -231,21 +188,11 @@ class index extends pscr_content {
         $para = $this->get_paragraph_container_h3("Kernel commandline parameters");
         $para->div()->br()->samp(shell_exec("cat /proc/cmdline"));
 
-        //$para = $this->get_paragraph_container_h3("netstat");
-        //$this->generate_table($para, explode("\n", shell_exec("netstat -an")));
-
         $para = $this->get_paragraph_container_h3("Interrupts");
-        $data = shell_exec("cat /proc/interrupts");
-        $data = explode("\n", $data);
-        $this->generate_table($para, $data);
+        $para->pre(shell_exec("cat /proc/interrupts"));
 
         $para = $this->get_paragraph_container_h3("Memory Info");
         $data = shell_exec("cat /proc/meminfo");
-        $data = explode("\n", $data);
-        $this->generate_table($para, $data);
-
-        $para = $this->get_paragraph_container_h3("Page type Info");
-        $data = shell_exec("cat /proc/pagetypeinfo");
         $data = explode("\n", $data);
         $this->generate_table($para, $data);
 
@@ -255,15 +202,7 @@ class index extends pscr_content {
         $this->generate_table($para, $data);
 
         $para = $this->get_paragraph_container_h3("supported protocols");
-        $data = shell_exec("cat /proc/net/protocols");
-        $data = explode("\n", $data);
-        $this->generate_table($para, $data);
-
-        //   $para = $this->get_paragraph_container_h3("processes");
-        //$data = shell_exec("ps -aux");
-        //$data = explode("\n", $data);
-        //$this->generate_table($para, $data);
-
+        $para->pre(shell_exec("cat /proc/net/protocols"));
     }
     function generate_table($para, $data) {
         $table = $para->table();
