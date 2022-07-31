@@ -197,12 +197,12 @@ class index extends pscr_content {
         $this->generate_table($para, $data);
 
         $para = $this->get_paragraph_container_h3("net / dev");
-        $data = shell_exec("cat /proc/net/dev");
+        $para->pre(shell_exec("cat /proc/net/dev"));
+      
+        $para = $this->get_paragraph_container_h3("supported protocols");
+        $data = shell_exec("cat /proc/net/protocols");
         $data = explode("\n", $data);
         $this->generate_table($para, $data);
-
-        $para = $this->get_paragraph_container_h3("supported protocols");
-        $para->pre(shell_exec("cat /proc/net/protocols"));
     }
     function generate_table($para, $data) {
         $table = $para->table();
